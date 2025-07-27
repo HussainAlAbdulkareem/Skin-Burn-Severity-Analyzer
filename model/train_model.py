@@ -65,3 +65,7 @@ val_acc = correct / total
 
 print(avg_val_loss)
 print(val_acc)
+
+
+
+torch.save(model.state_dict(), 'model.pth')
