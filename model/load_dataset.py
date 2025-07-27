@@ -1,6 +1,9 @@
+import matplotlib
+import matplotlib.pyplot as plt
 from torch import tensor
 from torchvision import transforms
 from torchvision.datasets import ImageFolder
+import numpy as np
 
 
 transform = transforms.Compose([
@@ -11,12 +14,12 @@ transform = transforms.Compose([
 
 dataset = ImageFolder(root='Skin-Burn-Severity-Analyzer\\dataset', transform=transform)
 
-
-
-# print(f"Total samples: {len(dataset)}")
-# print(f"Classes: {dataset.classes}")
-# print(f"Class to index map: {dataset.class_to_idx}")
 t = dataset[0][0]
 
-print(t.shape)
+t_numpy = t.numpy()
 
+
+transposed_arr = np.transpose(t_numpy, axes=(1, 2, 0))
+
+plt.imshow(transposed_arr)
+plt.show()
