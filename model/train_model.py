@@ -1,6 +1,8 @@
 import torchvision.models as models
 import torch.nn as nn
 import torch
+from load_dataset import train_dataloader, val_dataloader
+
 
 model = models.resnet18(pretrained=True)
 
@@ -16,4 +18,23 @@ print(model.fc)
 
 criterion = nn.CrossEntropyLoss()
 
-optimzer = torch.optim.Adam(model.parameters90, lr=0.001)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+
+num_epochs = 10
+
+for epoch in range(num_epochs):
+    model.train()
+    
+    for images, labels in train_dataloader:
+        images = images.to(device)
+        labels = labels.to(device)
+        
+        outputs = model(images)
+        
+        loss = (criterion(outputs, labels))
+        
+        optimizer.zero_grad()
+        loss.backward()
+        
+        
+        optimizer.step()
