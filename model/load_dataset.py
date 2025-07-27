@@ -23,16 +23,16 @@ dataset = ImageFolder(root='Skin-Burn-Severity-Analyzer\\dataset', transform=tra
 train_size = int(0.8 * len(dataset))
 val_size = len(dataset) - train_size
 
-train_set, val_set = random_split(dataset, [train_size, val_size], seed=42)
+train_set, val_set = random_split(dataset, [train_size, val_size])
 
 
 train_dataloader = DataLoader(train_set, batch_size=32, shuffle=True)
 val_dataloader = DataLoader(val_set, batch_size=32, shuffle=True)
 
-
-print(train_dataloader)
-print(val_dataloader)
-
+i = 0
+for images, labels in val_dataloader:
+    print(labels[i])
+    i+=1
 # t = dataset[0][0]
 
 # t_numpy = t.numpy()
