@@ -12,3 +12,8 @@ model.to(device)
 
 
 print(model.fc)
+
+
+criterion = nn.CrossEntropyLoss()
+
+optimzer = torch.optim.Adam(model.parameters90, lr=0.001)
