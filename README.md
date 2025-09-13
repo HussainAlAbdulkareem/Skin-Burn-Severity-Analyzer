@@ -27,13 +27,13 @@ pip install torch torchvision matplotlib pillow numpy
 
 ## Prepare your dataset
 dataset/
-├── 1st degree/
-│   ├── img1.jpg
-│   ├── img2.jpg
-├── 2nd degree/
-│   ├── img1.jpg
-├── 3rd degree/
-│   ├── img1.jpg
+- ├── 1st degree/
+- │   ├── img1.jpg
+- │   ├── img2.jpg
+- ├── 2nd degree/
+- │   ├── img1.jpg
+- ├── 3rd degree/
+- │   ├── img1.jpg
 
 ## Training
 ```bash
@@ -42,9 +42,15 @@ python train_model.py
 
 ## Prediction
 ```bash
-python predict.py
+python predict.py burnimage.jpg
 ```
 
+## Example Input
+```bash
+python predict.py 1burn.jpg
+```
 ## Example Output
-tensor([[0.05, 0.20, 0.75]])
-Prediction: 3rd degree
+```bash
+Probabilities: [[0.9203061461448669, 0.07193543761968613, 0.007758413441479206]]
+Prediction: 1st degree
+```
