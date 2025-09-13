@@ -25,6 +25,12 @@ cd Skin-Burn-Severity-Analyzer
 pip install torch torchvision matplotlib pillow numpy
 ```
 
+## Instant Use
+```bash
+python predict.py burnimage.jpg
+```
+
+# To Optionally Train Your Own Model
 ## Prepare your dataset
 dataset/
 - ├── 1st degree/
